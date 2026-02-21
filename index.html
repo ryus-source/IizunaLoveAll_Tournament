@@ -4,10 +4,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>いいづなオープン</title>
+<title>第6回 いいづなオープン</title>
 <style>
 body { font-family: sans-serif; text-align: center; padding: 20px; background: #f0f4f8; }
 .header { background: #0056b3; color: white; padding: 15px; border-radius: 8px; }
+.date-info { margin-top: 10px; font-size: 18px; font-weight: bold; color: #333; }
+.update-time { font-size: 14px; color: #666; margin-bottom: 10px; }
 .btn { display: block; margin: 15px auto; padding: 20px; width: 80%; max-width: 300px; color: white; text-decoration: none; border-radius: 10px; font-weight: bold; font-size: 18px; box-shadow: 0 4px 0 rgba(0,0,0,0.2); }
 .btn-green { background: #28a745; }
 .btn-blue { background: #007bff; }
@@ -15,13 +17,31 @@ body { font-family: sans-serif; text-align: center; padding: 20px; background: #
 </style>
 </head>
 <body>
+
 <div class="header">
-<h1>第6回 いいづなオープン小学生バドミントン大会</h1>
+<h1>第6回 いいづなオープン
+
+
+小学生バドミントン大会</h1>
 </div>
+
+<div class="date-info">開催日：2026年3月1日（日）</div>
+<div class="update-time" id="lastUpdate">参照時刻：読み込み中...</div>
+
 <p style="color:red; font-weight:bold;">最新の結果を公開中</p>
+
 <a href="202603014s.htm" class="btn btn-green">4年生以下</a>
 <a href="202603016ms.htm" class="btn btn-blue">6年生以下 男子</a>
 <a href="202603016ws.htm" class="btn btn-pink">6年生以下 女子</a>
-<p style="font-size: 12px; margin-top: 30px;">飯綱ラブオール</p>
+
+<p style="font-size: 30px; margin-top: 30px; font-weight: bold;">飯綱ラブオール</p>
+
+<script>
+// ページを開いた時の時間を表示するスクリプト
+const now = new Date();
+const timeStr = now.getHours() + "時" + now.getMinutes().toString().padStart(2, '0') + "分";
+document.getElementById('lastUpdate').innerHTML = "最終確認時刻：" + timeStr + "";
+</script>
+
 </body>
 </html>
