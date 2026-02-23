@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="refresh" content="30">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="-1">
@@ -11,30 +10,55 @@
 <title>第6回 いいづなオープン</title>
 <style>
 body { font-family: sans-serif; text-align: center; padding: 20px; background: #f0f4f8; }
-.header { background: #0056b3; color: white; padding: 15px; border-radius: 8px; }
+
+/* ヘッダー：イラストと文字を横並びにする設定 */
+.header { 
+    background: #0056b3; 
+    color: white; 
+    padding: 15px; 
+    border-radius: 8px;
+    display: flex;             /* 横並びにする */
+    align-items: center;       /* 上下中央揃え */
+    justify-content: center;   /* 左右中央揃え */
+    gap: 15px;                 /* イラストと文字の間の隙間 */
+}
+
+/* イラストのサイズ設定 */
+.header img { 
+    width: 60px;               /* サイズを小さく調整 */
+    height: auto; 
+    border-radius: 5px;
+}
+
+/* タイトルの文字設定 */
+.header h1 { 
+    margin: 0; 
+    font-size: 20px;           /* 横並びなので少しだけフォントを調整 */
+    text-align: left;          /* 文字は左寄せで見やすく */
+}
+
 .date-info { margin-top: 10px; font-size: 18px; font-weight: bold; color: #333; }
 .update-time { font-size: 14px; color: #666; margin-bottom: 10px; }
-.btn { display: block; margin: 15px auto; padding: 20px; width: 80%; max-width: 300px; color: white; text-decoration: none; border-radius: 10px; font-weight: bold; font-size: 18px; box-shadow: 0 4px 0 rgba(0,0,0,0.2); }
-/* ボタン色の設定 */
-.btn-orange { background: #fd7e14; } /* タイムテーブル用 */
+.btn { display: block; margin: 15px auto; padding: 20px; width: 80%; max-width: 300px; color: white; text-decoration: none; border-radius: 10px; font-weight: bold; font-size: 18px; box-shadow: 0 4px 0 rgba(0,0,0,0.2); transition: 0.2s; }
+.btn-orange { background: #fd7e14; }
 .btn-green { background: #28a745; }
 .btn-blue { background: #007bff; }
 .btn-pink { background: #d63384; }
-
 .btn:active { box-shadow: none; transform: translateY(2px); }
 </style>
 </head>
 <body>
 
 <div class="header">
-<h1>第6回 いいづなオープン<br>小学生バドミントン大会</h1>
+    <img src="illust.png" alt="大会イラスト">
+    <h1>第6回 いいづなオープン<br>小学生バドミントン大会</h1>
 </div>
 
 <div class="date-info">開催日：2026年3月1日（日）</div>
 <div class="update-time" id="lastUpdate">参照時刻：読み込み中...</div>
 
 <p style="margin-top: 20px; font-weight: bold; color: #333;">【大会進行】</p>
-<a href="20260301運営用TT.pdf" class="btn btn-orange" target="_blank">当日タイムテーブル (PDF)</a>
+<a href="timetable.pdf" class="btn btn-orange" target="_blank">当日タイムテーブル (PDF)</a>
 
 <hr style="border: 0; border-top: 1px solid #ccc; margin: 20px auto; width: 80%;">
 
@@ -46,12 +70,12 @@ body { font-family: sans-serif; text-align: center; padding: 20px; background: #
 <p style="font-size: 30px; margin-top: 30px; font-weight: bold;">飯綱ラブオール</p>
 
 <script>
-// ページを開いた時の時間を表示するスクリプト
+// 参照時刻を表示
 const now = new Date();
 const timeStr = now.getHours() + "時" + now.getMinutes().toString().padStart(2, '0') + "分";
 document.getElementById('lastUpdate').innerHTML = "最終確認時刻：" + timeStr + "";
 
-// 前回の「30秒強制リロード」も念のためセット
+// 30秒ごとに強制リロード
 setTimeout(function() {
     location.reload(true);
 }, 30000);
